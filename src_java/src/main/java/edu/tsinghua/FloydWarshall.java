@@ -6,9 +6,8 @@ import java.time.Instant;
 import org.nd4j.linalg.api.ndarray.INDArray;
 import org.nd4j.linalg.factory.Nd4j;
 
-import lombok.extern.slf4j.Slf4j;
 
-@Slf4j
+
 public class FloydWarshall {
   public static final float INF = Float.MAX_VALUE;
   public static INDArray allPairsShortestPath(INDArray op, INDArray op2) {
@@ -34,6 +33,7 @@ public class FloydWarshall {
     INDArray nd = Nd4j.create(new double[] { -1, 2, 3, 4, 5, 6 }, new int[] { 3, 2 });
     INDArray nd2 = Nd4j.create(new double[] { -1, 2, 3, 4, 5, 6 }, new int[] { 2, 3 });
     INDArray result = FloydWarshall.allPairsShortestPath(nd, nd2);
-    log.info(Duration.between(start, Instant.now()).toString());
+    long exectime = Duration.between(start, Instant.now()).toMillis();
+    log.info(exectime);
   }
 }

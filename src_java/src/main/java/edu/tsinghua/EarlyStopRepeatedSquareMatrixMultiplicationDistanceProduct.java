@@ -10,14 +10,14 @@
 //        limitations under the License.
 package edu.tsinghua;
 
-import lombok.extern.slf4j.Slf4j;
+
 import org.nd4j.linalg.api.ndarray.INDArray;
 import org.nd4j.linalg.factory.Nd4j;
 import org.nd4j.linalg.ops.transforms.Transforms;
 
 //Server CPU:13:38:33.241 ~ 13:39:18.465 = 45s
 //Server GPU:13:41:15.716 ~ 13:42:50.337 = 95s
-@Slf4j
+
 public class EarlyStopRepeatedSquareMatrixMultiplicationDistanceProduct {
   public static final float INF = Float.MAX_VALUE;
   public static final float epsilon = 0.0000001f;
@@ -141,7 +141,7 @@ public class EarlyStopRepeatedSquareMatrixMultiplicationDistanceProduct {
       }
       op = dp;
     }
-    log.info("apsp:"+op.toString());
+    log.info("apsp:" + op.toString());
     return op;
   }
 }
