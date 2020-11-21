@@ -8,8 +8,8 @@ RUN rm -rf /workspace/*
 COPY . /workspace
 COPY settings.xml /usr/share/maven/conf/
 
-RUN mvn package -f pom.xml
-#RUN mvn package -f gpom.xml
+#RUN mvn package -f pom.xml
+RUN mvn package -f gpom.xml
 # Run when the container launches
 WORKDIR /workspace
 CMD ["python3"]
