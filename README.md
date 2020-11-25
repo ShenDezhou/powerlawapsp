@@ -17,29 +17,13 @@ A dataset for Chinese Movie Actors Sina Weibo Following Relationship 2011-2015.
 # 2. Library Requirement  
 
 ## 2.1 Programming Environment
-Installation of python 3.6+, NVIDIA CUDA10.1, JDK 1.8.0, Maven 3.6.1 is required.
+Installation of python 3.6+, NVIDIA CUDA10.2, JDK 1.8.0, Maven 3.6.1 is required.
 
 ## 2.2 Python Dependant 
 
 See requirements.txt
 
-## 2.3 Java Libraries
-
-Java libraries need to be installed, install dependencies using command: `mvn install:install-file -DpomFile=pom[-gpu].xml`.  
-
-The installed full list is as follows:  
-1. org.nd4j:nd4j-cuda-10.0-platform:1.0.0-beta6  
-2. org.nd4j:nd4j-native-platform:1.0.0-beta6  
-3. org.nd4j:nd4j-native:windows-x86_64-avx2:1.0.0-beta6  
-4. org.nd4j:nd4j-native:linux-x86_64-avx2:1.0.0-beta6  
-5. org.slf4j:slf4j-api:1.7.25  
-6. ch.qos.logback:logback-classic:1.2.3  
-7. org.projectlombok:lombok:1.18.10  
-8. org.springframework.boot:spring-boot-starter-web:2.2.5.RELEASE  
-9. org.springframework.boot:spring-boot-starter-test:2.2.5.RELEASE  
-
-
-## 2.4 Java jar build.
+## 2.3 Java jar build.
 
 Use maven to build executing jar. Using command: `mvn package -f pom[-gpu].xml`,
  then get the result jar file `apsp-cpu.jar` or `apsp-gpu.jar`.
@@ -59,7 +43,7 @@ Command parameters explained as follows:
 * powerlawbound for this paper's algorithm.  
    
 Full command as follows:  
-`java -jar apsp-cpu.jar matrix.npy 8508 apsp.npy floydwarshall`
+`java -jar apsp-cpu.jar matrix.npy 9 floydwarshall`
 
 ## 3.2 Alon N
 
@@ -97,8 +81,21 @@ Use config file `apsp_config.json`
 Use config file `apsp_gpu_config.json`
 
 ### 3.3.5 PowerLawBound-GPU-CUBLAS
-`java -jar apsp-gpu.jar matrix.npy 8 apsp.npy`
+`java -jar apsp-gpu.jar matrix.npy 9`
 
 ### 3.3.6 PowerLawBound-CPU-OPENBLAS
-`java -jar apsp-cpu.jar matrix.npy 8 apsp.npy`
+`java -jar apsp-cpu.jar matrix.npy 9`
 
+# 4. Dockers for Reproduction
+
+## 4.1 Docker for Powerlaw
+
+Use docker file `powerlawapsp\Dockerfile`
+
+## 4.2 Docker file for PowerLawBound-GPU-CUBLAS
+
+Use docker file `powerlawapspjava\Dockerfile-gpu`
+
+## 4.3 Docker file for PowerLawBound-CPU-OPENBLAS
+
+Use docker file `powerlawapspjava\Dockerfile`
